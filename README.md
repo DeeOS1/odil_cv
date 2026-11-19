@@ -6,28 +6,34 @@
 
 ## Публикация на GitHub Pages
 
-Публикация настроена в `.github/workflows/deploy-pages.yml`.
+Сайт: <https://deeos1.github.io/odil_cv/>.
 
-1. Откройте репозиторий `DeeOS1/odil_cv` на GitHub.
-2. В `Settings → Pages → Build and deployment → Source` выберите **GitHub Actions**.
-3. Отправьте изменения в ветку `main`. Workflow **Deploy portfolio to GitHub Pages**
-   установит зависимости, соберёт сайт и опубликует его.
-4. Для ручного запуска откройте `Actions → Deploy portfolio to GitHub Pages → Run workflow`.
-5. После успешного выполнения адрес сайта появится в `Settings → Pages`
-   и в результате задания `deploy`.
+GitHub Pages публикует готовую статическую сборку из ветки `gh-pages`.
+В настройках репозитория выбраны:
 
-Ожидаемый адрес без собственного домена: <https://deeos1.github.io/odil_cv/>.
-Он начнёт работать после включения Pages и успешной публикации.
+- `Settings → Pages → Build and deployment → Source`: **Deploy from a branch**.
+- Ветка: **gh-pages**; папка: **/(root)**.
+
+Чтобы опубликовать обновления, сохраните исходники в `main`, затем выполните
+в папке проекта после входа в GitHub через Git:
+
+```bash
+npm run deploy:pages
+```
+
+Команда соберёт сайт с путём `/odil_cv/` и отправит только готовые файлы
+в ветку `gh-pages`. История `main` и текущая рабочая папка сохраняются.
+GitHub Pages обновит сайт после обработки этой ветки.
+
+Для проекта используется публикация готовых файлов: запуск пользовательского
+GitHub Actions workflow не требуется. Текущий аккаунт GitHub блокирует Actions
+из-за billing-проблемы, поэтому автоматическая сборка workflow отключена.
 
 GitHub Pages доступен для открытых репозиториев на GitHub Free.
-Для закрытого репозитория необходим тариф GitHub, поддерживающий Pages
-для приватных репозиториев. Видимость репозитория изменяется отдельно.
+Репозиторий `DeeOS1/odil_cv` сделан публичным с разрешения владельца.
 
-Workflow получает путь сайта из настроек GitHub Pages и передаёт его
-в `NEXT_PUBLIC_BASE_PATH`. Благодаря этому логотипы, скрипт, иконки и резюме
-работают и по адресу `/odil_cv/`, и при публикации в корне домена.
-Секреты или отдельный токен для workflow не нужны: используются стандартные
-разрешения `GITHUB_TOKEN` для публикации Pages.
+Пути логотипов, скрипта, иконок и резюме учитывают `NEXT_PUBLIC_BASE_PATH`.
+Папка `out/` содержит готовый сайт; она не хранится в `main`.
 
 ## Локальная разработка
 
@@ -62,7 +68,6 @@ npm start
 ## Структура
 
 ```text
-.github/workflows/deploy-pages.yml  # Сборка и публикация GitHub Pages
 app/page.jsx                       # Разделы портфолио
 app/layout.jsx                     # Оболочка, метаданные и иконки
 app/globals.css                    # Темы, адаптивность и оформление
@@ -71,6 +76,7 @@ app/components/ProfileContacts.jsx # Контакты и дата рождени
 app/components/ResumeDownloads.jsx # Выбор резюме
 lib/paths.mjs                      # Префикс путей сайта и ресурсов
 scripts/preview-static.mjs         # Локальный просмотр папки out
+scripts/deploy-pages.mjs           # Сборка и отправка в ветку gh-pages
 public/portfolio.js                # Интерактивность
 public/assets/                     # Логотипы и иконки
 public/docs/                       # Резюме для скачивания
