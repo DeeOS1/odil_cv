@@ -1,3 +1,5 @@
+import { publicPath } from "../../lib/paths.mjs";
+
 const resumes = [
   {
     title: "Мини-CV",
@@ -53,7 +55,7 @@ export default function ResumeDownloads() {
               {resume.formats.map((format) => (
                 <a
                   className="resume-download-link"
-                  href={format.href}
+                  href={publicPath(format.href)}
                   download={format.filename}
                   aria-label={`Скачать ${resume.title} в формате ${format.label}`}
                   key={format.href}

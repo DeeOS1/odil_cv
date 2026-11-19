@@ -2,6 +2,7 @@ node_modules
 .npm-cache
 tmp/
 .next
+out/
 .vercel
 .env*
 !.env.example
