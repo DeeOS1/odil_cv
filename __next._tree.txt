@@ -1,0 +1,5 @@
+:HL["/odil_cv/_next/static/chunks/3251z1b2gijs1.css","style"]
+:HL["/odil_cv/assets/logo-96.png","image"]
+:HL["/odil_cv/assets/logo-256.png","image"]
+1:[["children",{"s":"__PAGE__","h":160}]]
+0:{"b":"9Mh9YTay__ravBUUIldTw","t":{"t":{"s":"","h":80,"c":"$Q1"}}}
