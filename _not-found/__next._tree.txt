@@ -1,4 +1,4 @@
 :HL["/odil_cv/_next/static/chunks/3251z1b2gijs1.css","style"]
 2:[["children",{"s":"__PAGE__","h":160}]]
 1:[["children",{"s":"/_not-found","h":96,"c":"$Q2"}]]
-0:{"b":"9Mh9YTay__ravBUUIldTw","t":{"t":{"s":"","h":80,"c":"$Q1"}}}
+0:{"b":"g5amzIQJIILLgFLxbTYIl","t":{"t":{"s":"","h":80,"c":"$Q1"}}}
